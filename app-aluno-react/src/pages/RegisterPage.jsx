@@ -1,51 +1,39 @@
-import { useState } from 'react';
-import InputField from '../components/inputField';
+import { useState } from "react";
+import Passo1 from "./Step1Register";
+import Passo2 from "./Step2Register";
 
 export default function RegisterPage(){
-    const [passo, setPasso]=useState(1);
-    
-    const [cpf, setCPF] = useState('');
+    const [passo, setPasso] = useState(1);
+
+    const [cpf, setCpf] = useState('');
     const [nome, setNome] = useState('');
     const [telefone, setTelefone] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState('');
-    
-    function handleSubmit(e){
-        e.preventDefault();
-        if (!email || !senha || !nome){
-            setErro('Preencha todos os campos');
-            return;
-        };
-        set
+
+    function handleAvancar(e){
+       if(!cpf) {
+        setErro('Por favor, insira seu CPF.');
+        return;
+       }
+       setErro('')
+       setPasso(2);
     }
-    return (
-            <form onSubmit={handleSubmit}>
-                <InputField
-                    label='CPF'
-                    placeholder='***.***.***-**'
-                    type='text' 
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <InputField
-                    label='Endereço de e-mail'
-                    placeholder='user@email.com'
-                    type='email' 
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <InputField
-                    label='Senha' 
-                    type='password' 
-                    value={senha}
-                    onChange={e => setSenha(e.target.value)}
-                >
-                <a href='esqueceu.html'>Esqueceu?</a>
-                </InputField>
-                
-                <button type='submit'>Enviar</button>
-                {erro && <p>{erro}</p>}
-            </form>
-        )
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        if (!nome || !telefone || !email || !senha) {
+            setErro('Preencha todos os campos.');
+            return;
+        }
+        setErro('');
+    }
+
+    
+    if (passo === 1) {
+        return <Passo1 cpf={cpf} setCpf={setCpf} erro={erro} onAvancar={handleAvancar} />;
+    }
+
+    return <Passo2 nome={nome} setNome={setNome} telefone={telefone} setTelefone={setTelefone} email={email} setEmail={setEmail} senha={senha} setSenha={setSenha} erro={erro} onSubmit={handleSubmit} />;
 }

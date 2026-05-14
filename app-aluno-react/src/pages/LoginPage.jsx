@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import InputField from '../components/inputField';
+import { useState } from "react";
+import InputField from "../components/inputField";
 
-export default function LoginPage(){
+export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState('');
@@ -10,32 +10,33 @@ export default function LoginPage(){
         e.preventDefault();
         if (!email || !senha){
             setErro('Preencha todos os campos');
-            return;
-        };
+            return; 
+        }
         setErro('');
-        console.log('Login: ', email, senha);
+        console.log('Login:', email, senha);
     }
 
-    return (
+    return(
         <form onSubmit={handleSubmit}>
-            <InputField
-                label='Endereço de e-mail'
-                placeholder='user@email.com'
-                type='email' 
+            <InputField 
+                label="Endereço de e-mail"
+                placeholder="user@email.com"
+                type="email" 
                 value={email}
                 onChange={e => setEmail(e.target.value)}
             />
-            <InputField
-                label='Senha' 
-                type='password' 
+
+            <InputField 
+                label="Senha"
+                type="password" 
                 value={senha}
                 onChange={e => setSenha(e.target.value)}
-            >
-            <a href='esqueceu.html'>Esqueceu?</a>
+            > 
+            <a href="esqueceu.html"> Esqueceu?</a>
             </InputField>
-            
-            <button type='submit'>Enviar</button>
+
             {erro && <p>{erro}</p>}
+            <button type="submit">Entrar</button>                     
         </form>
     )
 }
