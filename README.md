@@ -6,16 +6,6 @@ Desenvolvido juntamente ao professor Lucas Vergara, na disciplina de Front-End, 
 
 ---
 
-## Tecnologias Utilizadas
-
-- :contentReference[oaicite:0]{index=0} — construção da interface do usuário
-- :contentReference[oaicite:1]{index=1} — suporte ao ambiente de desenvolvimento
-- :contentReference[oaicite:2]{index=2} — gerenciamento de dependências
-- HTML5 + CSS3 — estrutura e estilização
-- JavaScript (ES6+) — lógica da aplicação
-
----
-
 ## Funcionalidades
 
 - Cadastro e visualização de alunos
