@@ -1,23 +1,32 @@
-import './App.css'
-import Welcome from './Welcome.jsx'
-import Counter from './Counter.jsx'
+import LoginPage from './pages/LoginPage'
+import './assets/style.css'
 
 function App() {
 
-  const frutas = ['Maçã','Laranja','Uva'];
-
   return (
     <>
+      <div className="container">
 
-    <ul>
-      {frutas.map((fruta)=>
-        <li key={fruta}>{fruta}</li>
-      )}
-    </ul>
+        <div className="hero">
+            <p>
+                "Educação não é o aprendizado de fatos,
+                mas treinamento da mente para pensar."
+                <span>Albert Einstein</span>
+            </p>
+        </div>
 
-    <Welcome name='BBZINHO FABIO'/>
-    <Welcome name='NEXTSTAGE BB'/>
-    <Counter/>
+        <div className="formulario">
+            <div>
+
+                <h1>Bem-vindo de volta</h1>
+                <p>Por favor, insira suas credenciais para acessar seu painel acadêmico</p>
+
+                <LoginPage></LoginPage>
+                <p className="registre-se">Não tem uma conta? <a href="registro.html">Registre-se agora.</a></p>
+
+            </div>
+        </div>
+      </div>
     </>
   )
 }
